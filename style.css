@@ -1,0 +1,882 @@
+/* =========================
+   RESET
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   PALETA FACEBOOK (LIGHT MODE DEFAULT)
+   ========================= */
+:root {
+  --bg: #F0F2F5;          /* Fondo general */
+  --card: #ffffff;        /* Color de tarjetas/contenedores */
+  --primary: #1877F2;     /* Azul principal estilo Facebook */
+  --text: #050505;        /* Texto principal */
+  --text-secondary: #65676B; /* Texto secundario */
+  --hover: #166FE5;       /* Azul hover */
+
+  --font: 'Poppins', sans-serif; /* Tipografía base */
+}
+
+/* =========================
+   DARK MODE (FACEBOOK STYLE)
+   ========================= */
+.dark-mode {
+  --bg: #18191A;          /* Fondo oscuro */
+  --card: #242526;        /* Tarjetas oscuras */
+  --primary: #1877F2;     /* Azul principal */
+  --text: #E4E6EB;        /* Texto claro */
+  --text-secondary: #B0B3B8; /* Texto secundario claro */
+  --hover: #3A8DFF;       /* Azul hover en dark mode */
+}
+
+/* =========================
+   BODY
+   ========================= */
+body {
+  font-family: var(--font);
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  transition: 0.3s ease; /* transición suave al cambiar dark/light */
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
+.navbar {
+  width: 100%;
+  padding: 18px 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  position: fixed; /* fija arriba */
+  top: 0;
+  left: 0;
+
+  background-color: var(--card);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000; /* siempre encima */
+}
+
+/* NAV CONTAINER */
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.logo {
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s ease;
+  text-decoration: none; /* quita subrayado */
+}
+.logo:hover {
+  color: var(--primary);
+  transform: scale(1.05); /* efecto zoom */
+}
+
+/* LINKS */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  font-size: 20px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  transition: 0.3s;
+  position: relative;
+}
+
+/* HOVER FACEBOOK STYLE */
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+/* UNDERLINE EFFECT */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: var(--primary);
+  transition: 0.3s;
+}
+.nav-links a:hover::after {
+  width: 100%; /* subrayado animado */
+}
+
+/* =========================
+   NAV ACTIONS (Dark Mode + Hamburguesa)
+   ========================= */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Botón Dark Mode */
+#darkModeToggle {
+  border: none;
+  background: var(--card);
+  color: var(--text);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+/* =========================
+   HAMBURGER MENU
+   ========================= */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.hamburger span {
+  height: 3px;
+  width: 100%;
+  background: var(--text);
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Animación al activar (X) */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* =========================
+   RESPONSIVE NAVBAR
+   ========================= */
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    background: var(--card);
+    align-items: center;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-links.open {
+    max-height: 300px;
+    padding: 20px 0;
+  }
+}
+
+
+/* =========================
+   HERO SECTION
+   ========================= */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 50px;
+  min-height: 100vh;
+  margin-top: 80px;
+
+  /* Fondo con imagen */
+  background-image: url('img/hero.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+}
+
+/* Overlay oscuro sobre el fondo */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+/* Contenido encima del overlay */
+.hero-text {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+}
+
+/* =========================
+   TÍTULO TYPEWRITER
+   ========================= */
+.hero-text h1 {
+  font-size: clamp(5rem, 5vw, 5rem);
+  color: var(--text);
+
+  white-space: nowrap; /* evita salto de línea */
+  overflow: hidden;
+
+  display: inline-block;
+  border-right: 2px solid var(--primary); /* cursor */
+  padding-right: 5px;
+
+  width: 0; /* inicia oculto */
+
+  /* Animación typing + cursor */
+  animation:
+    typing 1.8s steps(18, end) forwards,
+    blink 0.7s infinite;
+}
+
+/* =========================
+   SUBTÍTULO
+   ========================= */
+.hero-text h2 {
+  font-size: clamp(1.3rem, 2.5vw, 2.5rem);
+  color: var(--text);
+  margin-bottom: 15px;
+
+  opacity: 0;
+  transform: translateY(15px);
+
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 1.8s;
+}
+
+/* =========================
+   BOTONES HERO
+   ========================= */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+
+  opacity: 0;
+  transform: translateY(15px);
+
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 2.2s;
+}
+
+/* Botón base */
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+/* Botón primario */
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+.btn-primary:hover {
+  transform: scale(1.06);
+  background: var(--hover);
+}
+
+/* Botón secundario */
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+.btn-secondary:hover {
+  transform: scale(1.06);
+  background: var(--primary);
+  color: white;
+}
+
+/* =========================
+   ANIMACIONES
+   ========================= */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 18ch; } /* ajusta según el texto */
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   RESPONSIVE HERO
+   ========================= */
+@media (max-width: 900px) {
+  .hero {
+    text-align: center;
+    justify-content: center;
+    padding: 30px;
+  }
+  .hero-text {
+    max-width: 100%;
+  }
+  .hero-text h1 {
+    white-space: nowrap;
+    border-right: 2px solid var(--primary);
+    font-size: 2.5rem;
+    animation:
+      typing 1.6s steps(22, end) forwards,
+      blink 0.7s infinite;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+  .btn {
+    font-size: 1rem;
+    padding: 14px 22px;
+  }
+}
+
+/* =========================
+   SECCIONES GENERALES
+   ========================= */
+.about-section,
+.skills-section,
+.projects-section,
+.contact-section {
+  padding: 80px 20px;
+  margin-bottom: 100px;
+  position: relative;
+  background-color: var(--bg);
+  color: var(--text);
+  scroll-margin-top: 100px; /* ajusta según la altura de tu navbar */
+}
+
+/* =========================
+   CONTENEDOR PRINCIPAL (CARD)
+   ========================= */
+.container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 25px;
+  border-radius: 20px;
+  overflow: hidden;
+
+  background: var(--card);
+  color: var(--text);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  transition: 0.3s ease;
+}
+
+/* Hover suave en contenedor */
+.container:hover {
+  transform: translateY(-5px);
+}
+
+/* =========================
+   CANVAS PARTÍCULAS
+   ========================= */
+.particles-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none; /* evita interacción */
+}
+
+/* =========================
+   CONTENIDO ENCIMA DEL CANVAS
+   ========================= */
+.container {
+  position: relative;
+  z-index: 2; /* asegura que el texto esté sobre las partículas */
+}
+
+/* =========================
+   TÍTULO SECCIÓN
+   ========================= */
+.section-title {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+
+  /* degradado en texto */
+  background: linear-gradient(90deg, var(--primary), var(--hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  transition: 0.3s ease;
+}
+
+/* Línea decorativa bajo el título */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  margin: 12px auto 0;
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+/* Hover título */
+.section-title:hover {
+  transform: scale(1.05);
+  letter-spacing: 1px;
+}
+
+/* =========================
+   DARK MODE FIX EXTRA
+   ========================= */
+.dark-mode .container {
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================
+   TARJETA PRINCIPAL (ABOUT + SKILLS)
+   ========================= */
+.about-card {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 20px;
+
+  /* efecto glass */
+  background: var(--card);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   TEXTO DESCRIPCIÓN (ABOUT)
+   ========================= */
+.about-content p {
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* =========================
+   GRID SKILLS
+   ========================= */
+.skills-grid {
+  display: grid;
+  margin-top: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================
+   CARDS DE CATEGORÍA (SKILLS)
+   ========================= */
+.skills-card {
+  padding: 30px;
+  border-radius: 18px;
+  background: var(--card);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  transition: 0.3s ease;
+}
+
+/* Hover moderno en card */
+.skills-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--primary);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================
+   TÍTULO DE CATEGORÍA (SKILLS)
+   ========================= */
+.skills-card h3 {
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  text-align: center;
+
+  /* degradado en texto */
+  background: linear-gradient(90deg, var(--primary), var(--hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   ITEMS DE SKILLS
+   ========================= */
+.skills-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+
+/* =========================
+   SKILL ITEM INDIVIDUAL
+   ========================= */
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 12px;
+  min-width: 80px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover en skill */
+.skill-item:hover {
+  transform: scale(1.1);
+  color: var(--primary);
+}
+
+/* Iconos */
+.skill-item i {
+  font-size: 2rem;
+}
+
+/* Texto */
+.skill-item span {
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+/* =========================
+   DARK MODE FIX BASE
+   ========================= */
+.dark-mode .skills-card,
+.dark-mode .about-card,
+.dark-mode .project-card {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* =========================
+   SKILL ITEM (UNIFICADO)
+   ========================= */
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--card);
+  transition: 0.3s;
+  cursor: default;
+}
+.skill-item i {
+  font-size: 28px;
+}
+.skill-item span {
+  font-size: 0.9rem;
+  color: var(--text);
+}
+.skill-item:hover {
+  transform: scale(1.1);
+  background: var(--primary);
+  color: white;
+}
+
+/* =========================
+   PROJECTS GRID
+   ========================= */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================
+   PROJECT CARD
+   ========================= */
+.project-card {
+  background: var(--card);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--primary);
+}
+
+/* =========================
+   CAROUSEL
+   ========================= */
+.project-carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+.carousel-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+.carousel-track img {
+  width: 100%;
+  flex-shrink: 0;
+  display: block;
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 5px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+/* =========================
+   PROJECT TITLE
+   ========================= */
+.project-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, var(--primary), var(--hover));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   PROJECT TEXT
+   ========================= */
+.project-card p {
+  color: var(--text);
+  margin-bottom: 15px;
+}
+
+/* =========================
+   PROJECT TAGS
+   ========================= */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.project-tags span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: var(--card);
+  transition: 0.3s;
+}
+.project-tags span:hover {
+  background: var(--primary);
+  transform: scale(1.1);
+  color: white;
+}
+.project-tags i {
+  font-size: 18px;
+}
+
+/* =========================
+   PROJECT LINKS
+   ========================= */
+.project-links {
+  display: flex;
+  gap: 15px;
+}
+.project-links .btn {
+  padding: 8px 16px;
+  border-radius: 30px;
+  background: linear-gradient(90deg, var(--primary), var(--hover));
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.project-links .btn:hover {
+  transform: scale(1.08);
+}
+
+/* =========================
+   CONTACT FORM
+   ========================= */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.contact-form label {
+  color: var(--text);
+  font-weight: bold;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: var(--card);
+  color: var(--text);
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+/* Botón de enviar en el formulario */
+.contact-form .btn {
+  display: inline-block;       /* evita que ocupe todo el ancho */
+  width: auto;                 /* ancho automático */
+  padding: 8px 16px;
+  border-radius: 30px;
+  background: linear-gradient(90deg, var(--primary), var(--hover));
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+  cursor: pointer;
+  margin: 0 auto;              /* lo centra si el contenedor usa text-align:center */
+}
+
+.contact-form .btn:hover {
+  transform: scale(1.08);
+}
+
+
+/* =========================
+   FORM STATUS
+   ========================= */
+#form-status {
+  margin-top: 10px;
+  color: var(--primary);
+}
+
+/* =========================
+   SCROLL ANIMATIONS
+   ========================= */
+.section-hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.8s ease;
+}
+.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   FOOTER SECTION
+   ========================= */
+.footer {
+  width: 100%;                /* ocupa todo el ancho */
+  background: var(--card);    /* usa la paleta */
+  color: var(--text);
+  text-align: center;
+  padding: 25px 0;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Links rápidos */
+.footer-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 15px 0;
+  padding: 0;
+}
+
+.footer-links a {
+  color: var(--text);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* Redes sociales */
+.footer-social {
+  margin-top: 10px;
+}
+
+.footer-social a {
+  color: var(--text);
+  margin: 0 10px;
+  font-size: 1.4rem;
+  transition: 0.3s;
+}
+
+.footer-social a:hover {
+  color: var(--primary);
+}

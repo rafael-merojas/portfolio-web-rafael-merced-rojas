@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- =========================
+       METADATOS Y RECURSOS
+       ========================= -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Rafael Merced Rojas</title>
+
+  <!-- Tipografía -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Iconos (Devicon para logos de tecnologías) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVBAR
+       ========================= -->
+  <header class="navbar">
+    <nav class="nav-container">
+
+      <!-- Logo -->
+      <a href="#inicio" class="logo">Rafael Rojas</a>
+
+      <!-- Links de navegación -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#about">Acerca de mí</a></li>
+        <li><a href="#skills">Mis Habilidades</a></li>
+        <li><a href="#projects">Mis Proyectos</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+
+      <!-- Acciones (Dark mode + menú hamburguesa) -->
+      <div class="nav-actions">
+        <button id="darkModeToggle" class="dark-mode-btn">🌙</button>
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- =========================
+       HERO SECTION
+       ========================= -->
+  <section id="inicio" class="hero">
+
+    <!-- Texto principal -->
+    <div class="hero-text">
+      <h1 class="typing">¡Hola! Soy Rafael Rojas</h1>
+      <h2>Creo sitios web modernos, funcionales y responsivos.</h2>
+
+      <!-- Botones CTA -->
+      <div class="hero-buttons">
+        <a href="#about" class="btn btn-primary">Acerca de mí</a>
+        <a href="rafael-merced-rojas-cv.pdf" class="btn btn-secondary" download>Descarga mi CV</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- =========================
+       ABOUT SECTION
+       ========================= -->
+  <section id="about" class="about-section">
+    <div class="container">
+
+      <!-- Canvas de partículas -->
+      <canvas class="particles-canvas"></canvas>
+
+      <!-- Título -->
+      <h2 class="section-title">Acerca de mí</h2>
+
+      <!-- Tarjeta con contenido -->
+      <div class="about-card">
+        <div class="about-content">
+          <p>Soy una persona apasionada por la tecnología y el desarrollo web, con enfoque en la creación de soluciones modernas, funcionales y orientadas a resultados.</p>
+          <p>Actualmente continúo fortaleciendo mis habilidades en desarrollo web frontend y backend mediante proyectos prácticos, aplicando buenas prácticas de código, diseño responsivo y mejora continua.</p>
+          <p>Me considero responsable, autodidacta y comprometido con el aprendizaje constante. Destaco por mi iniciativa, capacidad para resolver problemas y adaptación a nuevos retos tecnológicos.</p>
+          <p>Busco integrarme a una empresa donde pueda aportar valor desde el primer día, seguir creciendo profesionalmente y desarrollarme dentro de un equipo enfocado en la innovación digital.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================
+       SKILLS SECTION
+       ========================= -->
+  <section id="skills" class="skills-section">
+    <div class="container">
+
+      <!-- Canvas partículas -->
+      <canvas class="particles-canvas"></canvas>
+
+      <!-- Título -->
+      <h2 class="section-title">Mis Habilidades</h2>
+
+      <!-- Descripción -->
+      <div class="skills-description">
+        <p>Estas son las tecnologías y herramientas que utilizo actualmente para desarrollar proyectos web modernos,
+          responsivos y funcionales. Continúo aprendiendo nuevas tecnologías para crecer como desarrollador.</p>
+        
+      </div>
+
+      <!-- Grid de habilidades -->
+      <div class="skills-grid">
+
+        <!-- FRONTEND -->
+        <div class="skills-card">
+          <h3>Frontend</h3>
+          <div class="skills-items">
+            <div class="skill-item"><i class="devicon-html5-plain colored"></i><span>HTML5</span></div>
+            <div class="skill-item"><i class="devicon-css3-plain colored"></i><span>CSS3</span></div>
+            <div class="skill-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+            <div class="skill-item"><i class="devicon-sass-original colored"></i><span>Sass</span></div>
+          </div>
+        </div>
+
+        <!-- BACKEND -->
+        <div class="skills-card">
+          <h3>Backend</h3>
+          <div class="skills-items">
+            <div class="skill-item"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
+              <div class="skill-item"><i class="devicon-jquery-plain colored"></i><span>AJAX</span></div>
+            <div class="skill-item"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+            <div class="skill-item"><i class="devicon-postgresql-plain colored"></i><span>PostgreSQL</span></div>
+            <div class="skill-item"><i class="devicon-npm-original-wordmark colored"></i><span>NPM</span></div>
+            <div class="skill-item"><i class="devicon-nodejs-plain-wordmark colored"></i><span>Nodejs</span></div>
+          </div>
+        </div>
+
+        <!-- HERRAMIENTAS -->
+        <div class="skills-card">
+          <h3>Herramientas</h3>
+          <div class="skills-items">
+            <div class="skill-item"><i class="devicon-git-plain colored"></i><span>Git</span></div>
+            <div class="skill-item"><i class="devicon-github-original colored"></i><span>GitHub</span></div>
+            <div class="skill-item"><i class="devicon-gitlab-plain colored"></i><span>GitLab</span></div>
+            <div class="skill-item"><i class="devicon-vscode-plain colored"></i><span>VS Code</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</section>
+
+  <!-- =========================
+       PROJECTS SECTION
+       ========================= -->
+  <section id="projects" class="projects-section">
+    <div class="container">
+
+      <!-- Canvas partículas -->
+      <canvas class="particles-canvas"></canvas>
+
+      <!-- Título -->
+      <h2 class="section-title">Mis Proyectos</h2>
+
+      <!-- Grid de proyectos -->
+      <div class="projects-grid">
+
+        <!-- ===================== PROJECT 1 ===================== -->
+        <div class="project-card">
+          <div class="project-carousel">
+            <div class="carousel-track">
+              <img src="img/portfolio-hero.PNG" alt="portfolio-hero">
+              <img src="img/portfolio-habilidades.JPG" alt="portfolio-habilidades">
+              <img src="img/portfolio-proyectos.JPG" alt="portfolio-proyectos">
+            </div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+          </div>
+          <h3>Portfolio Personal</h3>
+          <p>Portfolio profesional desarrollado para mostrar mis proyectos, habilidades y experiencia como desarrollador web. Diseño moderno, responsivo y optimizado.</p>
+          <div class="project-tags">
+            <span><i class="devicon-html5-plain colored"></i></span>
+            <span><i class="devicon-css3-plain colored"></i></span>
+            <span><i class="devicon-javascript-plain colored"></i></span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/rafael-merojas" class="btn">Ver Demo</a>
+            <a href="#" class="btn">Ver Código</a>
+          </div>
+        </div>
+
+        <!-- ===================== PROJECT 2 ===================== -->
+        <div class="project-card">
+          <div class="project-carousel">
+            <div class="carousel-track">
+              <img src="img/bienes-raices-hero.jpeg" alt="bienes-raices-hero">
+              <img src="img/bienes-raices-propiedades.jpeg" alt="bienes-raices-propiedades">
+              <img src="img/bienes-raices-servicios.jpeg" alt="bienes-raices-servicios">
+            </div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+          </div>
+          <h3>Bienes Raíces</h3>
+          <p>Sitio web moderno para empresa inmobiliaria con diseño profesional, múltiples secciones, navegación dinámica y estructura escalable.</p>
+          <div class="project-tags">
+            <span><i class="devicon-html5-plain colored"></i></span>
+            <span><i class="devicon-css3-plain colored"></i></span>
+            <span><i class="devicon-javascript-plain colored"></i></span>
+            <span><i class="devicon-sass-original colored"></i></span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/rafael-merojas" class="btn">Ver Demo</a>
+            <a href="https://rafael-merojas.github.io/bienes-raices-web/index.html" class="btn">Ver Código</a>
+          </div>
+        </div>
+
+        <!-- ===================== PROJECT 3 ===================== -->
+        <div class="project-card">
+          <div class="project-carousel">
+            <div class="carousel-track">
+              <img src="img/salon-hero.jpeg" alt="salon App">
+              <img src="img/proyecto2.png" alt="Proyecto 3">
+              <img src="img/proyecto2.png" alt="Proyecto 3">
+            </div>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+          </div>
+          <h3>App Salon</h3>
+          <p>Proyecto en desarrollo 🚧</p>
+          <p>Sistema web para gestión de citas en salón de belleza con panel administrativo, base de datos, autenticación y arquitectura MVC.</p>
+          <div class="project-tags">
+            <span><i class="devicon-php-plain colored"></i></span>
+            <span><i class="devicon-mysql-plain colored"></i></span>
+            <span><i class="devicon-jquery-plain colored"></i></span>
+            <span><i class="devicon-nodejs-plain-wordmark colored"></i></span>
+            
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/rafael-merojas" class="btn">Ver Demo</a>
+            <a href="#" class="btn">Ver Código</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       CONTACT SECTION
+       ========================= -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+
+      <!-- Título -->
+      <h2 class="section-title">Contacto</h2>
+
+      <!-- Formulario -->
+      <div class="contact-card">
+        <form id="contact-form" class="contact-form">
+          <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" required placeholder="Tu nombre">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Correo</label>
+            <input type="email" id="email" name="email" required placeholder="Tu correo">
+          </div>
+
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Tu mensaje"></textarea>
+          </div>
+
+          <button type="submit" class="btn">Enviar</button>
+          <p id="form-status"></p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+ <!-- =========================
+     FOOTER SECTION
+     ========================= -->
+<footer class="footer">
+  <p>&copy; 2026 Rafael Merced Rojas. Todos los derechos reservados.</p>
+
+  <!-- Links rápidos -->
+  <ul class="footer-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#about">Acerca de mí</a></li>
+    <li><a href="#skills">Mis Habilidades</a></li>
+    <li><a href="#projects">Mis Proyectos</a></li>
+    <li><a href="#contact">Contacto</a></li>
+  </ul>
+
+  <!-- Redes sociales -->
+  <div class="footer-social">
+    <a href="https://github.com/rafael-merojas" target="_blank"><i class="devicon-github-original"></i></a>
+    <a href="https://www.linkedin.com/in/rafael-merced-rojas-15942b309/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
+  </div>
+</footer>
+
+
+  <!-- =========================
+       SCRIPTS
+       ========================= -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
