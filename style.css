@@ -1,52 +1,42 @@
-/* =========================
-   RESET
-   ========================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* =========================
-   PALETA FACEBOOK (LIGHT MODE DEFAULT)
-   ========================= */
+
 :root {
-  --bg: #F0F2F5;          /* Fondo general */
-  --card: #ffffff;        /* Color de tarjetas/contenedores */
-  --primary: #1877F2;     /* Azul principal estilo Facebook */
-  --text: #050505;        /* Texto principal */
-  --text-secondary: #65676B; /* Texto secundario */
-  --hover: #166FE5;       /* Azul hover */
+  --bg: #F0F2F5;         
+  --card: #ffffff;        
+  --primary: #1877F2;     
+  --text: #050505;        
+  --text-secondary: #65676B; 
+  --hover: #166FE5;       
 
-  --font: 'Poppins', sans-serif; /* Tipografía base */
+  --font: 'Poppins', sans-serif; 
 }
 
-/* =========================
-   DARK MODE (FACEBOOK STYLE)
-   ========================= */
+
 .dark-mode {
-  --bg: #18191A;          /* Fondo oscuro */
-  --card: #242526;        /* Tarjetas oscuras */
-  --primary: #1877F2;     /* Azul principal */
-  --text: #E4E6EB;        /* Texto claro */
-  --text-secondary: #B0B3B8; /* Texto secundario claro */
-  --hover: #3A8DFF;       /* Azul hover en dark mode */
+  --bg: #18191A;          
+  --card: #242526;        
+  --primary: #1877F2;    
+  --text: #E4E6EB;        
+  --text-secondary: #B0B3B8; 
+  --hover: #3A8DFF;       
 }
 
-/* =========================
-   BODY
-   ========================= */
+
 body {
   font-family: var(--font);
   background-color: var(--bg);
   color: var(--text);
   overflow-x: hidden;
-  transition: 0.3s ease; /* transición suave al cambiar dark/light */
+  transition: 0.3s ease; 
 }
 
-/* =========================
-   NAVBAR
-   ========================= */
+
 .navbar {
   width: 100%;
   padding: 18px 50px;
@@ -54,16 +44,16 @@ body {
   justify-content: flex-end;
   align-items: center;
 
-  position: fixed; /* fija arriba */
+  position: fixed; 
   top: 0;
   left: 0;
 
   background-color: var(--card);
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  z-index: 1000; /* siempre encima */
+  z-index: 1000; 
 }
 
-/* NAV CONTAINER */
+
 .navbar nav {
   display: flex;
   align-items: center;
@@ -72,7 +62,7 @@ body {
   justify-content: space-between;
 }
 
-/* LOGO */
+
 .logo {
   font-size: 40px;
   font-weight: 600;
@@ -80,14 +70,14 @@ body {
   cursor: pointer;
   user-select: none;
   transition: 0.3s ease;
-  text-decoration: none; /* quita subrayado */
+  text-decoration: none; 
 }
 .logo:hover {
   color: var(--primary);
-  transform: scale(1.05); /* efecto zoom */
+  transform: scale(1.05); 
 }
 
-/* LINKS */
+
 .nav-links {
   list-style: none;
   display: flex;
@@ -103,12 +93,12 @@ body {
   position: relative;
 }
 
-/* HOVER FACEBOOK STYLE */
+
 .nav-links a:hover {
   color: var(--primary);
 }
 
-/* UNDERLINE EFFECT */
+
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -120,19 +110,17 @@ body {
   transition: 0.3s;
 }
 .nav-links a:hover::after {
-  width: 100%; /* subrayado animado */
+  width: 100%; 
 }
 
-/* =========================
-   NAV ACTIONS (Dark Mode + Hamburguesa)
-   ========================= */
+
 .nav-actions {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-/* Botón Dark Mode */
+
 #darkModeToggle {
   border: none;
   background: var(--card);
@@ -143,9 +131,7 @@ body {
   border-radius: 8px;
 }
 
-/* =========================
-   HAMBURGER MENU
-   ========================= */
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -164,7 +150,7 @@ body {
   transition: 0.3s;
 }
 
-/* Animación al activar (X) */
+
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translateY(8px);
 }
@@ -175,9 +161,7 @@ body {
   transform: rotate(-45deg) translateY(-8px);
 }
 
-/* =========================
-   RESPONSIVE NAVBAR
-   ========================= */
+
 @media (max-width: 900px) {
   .hamburger {
     display: flex;
@@ -204,9 +188,7 @@ body {
 }
 
 
-/* =========================
-   HERO SECTION
-   ========================= */
+
 .hero {
   display: flex;
   align-items: center;
@@ -215,7 +197,6 @@ body {
   min-height: 100vh;
   margin-top: 80px;
 
-  /* Fondo con imagen */
   background-image: url('img/hero.png');
   background-size: cover;
   background-position: center;
@@ -224,7 +205,7 @@ body {
   position: relative;
 }
 
-/* Overlay oscuro sobre el fondo */
+
 .hero::before {
   content: "";
   position: absolute;
@@ -233,38 +214,33 @@ body {
   z-index: 1;
 }
 
-/* Contenido encima del overlay */
+
 .hero-text {
   position: relative;
   z-index: 2;
   max-width: 650px;
 }
 
-/* =========================
-   TÍTULO TYPEWRITER
-   ========================= */
+
 .hero-text h1 {
   font-size: clamp(5rem, 5vw, 5rem);
   color: var(--text);
 
-  white-space: nowrap; /* evita salto de línea */
+  white-space: nowrap; 
   overflow: hidden;
 
   display: inline-block;
-  border-right: 2px solid var(--primary); /* cursor */
+  border-right: 2px solid var(--primary); 
   padding-right: 5px;
 
-  width: 0; /* inicia oculto */
+  width: 0; 
 
-  /* Animación typing + cursor */
   animation:
     typing 1.8s steps(18, end) forwards,
     blink 0.7s infinite;
 }
 
-/* =========================
-   SUBTÍTULO
-   ========================= */
+
 .hero-text h2 {
   font-size: clamp(1.3rem, 2.5vw, 2.5rem);
   color: var(--text);
@@ -277,9 +253,7 @@ body {
   animation-delay: 1.8s;
 }
 
-/* =========================
-   BOTONES HERO
-   ========================= */
+
 .hero-buttons {
   display: flex;
   gap: 15px;
@@ -292,7 +266,7 @@ body {
   animation-delay: 2.2s;
 }
 
-/* Botón base */
+
 .btn {
   display: inline-block;
   padding: 12px 20px;
@@ -302,7 +276,7 @@ body {
   transition: 0.3s ease;
 }
 
-/* Botón primario */
+
 .btn-primary {
   background: var(--primary);
   color: white;
@@ -312,7 +286,7 @@ body {
   background: var(--hover);
 }
 
-/* Botón secundario */
+
 .btn-secondary {
   background: transparent;
   border: 2px solid var(--primary);
@@ -324,12 +298,10 @@ body {
   color: white;
 }
 
-/* =========================
-   ANIMACIONES
-   ========================= */
+
 @keyframes typing {
   from { width: 0; }
-  to { width: 18ch; } /* ajusta según el texto */
+  to { width: 18ch; } 
 }
 @keyframes blink {
   50% { border-color: transparent; }
@@ -341,9 +313,7 @@ body {
   }
 }
 
-/* =========================
-   RESPONSIVE HERO
-   ========================= */
+
 @media (max-width: 900px) {
   .hero {
     text-align: center;
@@ -370,9 +340,7 @@ body {
   }
 }
 
-/* =========================
-   SECCIONES GENERALES
-   ========================= */
+
 .about-section,
 .skills-section,
 .projects-section,
@@ -382,12 +350,10 @@ body {
   position: relative;
   background-color: var(--bg);
   color: var(--text);
-  scroll-margin-top: 100px; /* ajusta según la altura de tu navbar */
+  scroll-margin-top: 100px; 
 }
 
-/* =========================
-   CONTENEDOR PRINCIPAL (CARD)
-   ========================= */
+
 .container {
   position: relative;
   max-width: 1200px;
@@ -405,34 +371,28 @@ body {
   transition: 0.3s ease;
 }
 
-/* Hover suave en contenedor */
+
 .container:hover {
   transform: translateY(-5px);
 }
 
-/* =========================
-   CANVAS PARTÍCULAS
-   ========================= */
+
 .particles-canvas {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   z-index: 0;
-  pointer-events: none; /* evita interacción */
+  pointer-events: none; 
 }
 
-/* =========================
-   CONTENIDO ENCIMA DEL CANVAS
-   ========================= */
+
 .container {
   position: relative;
-  z-index: 2; /* asegura que el texto esté sobre las partículas */
+  z-index: 2; 
 }
 
-/* =========================
-   TÍTULO SECCIÓN
-   ========================= */
+
 .section-title {
   text-align: center;
   font-size: clamp(2rem, 4vw, 3rem);
@@ -440,7 +400,7 @@ body {
   position: relative;
   z-index: 2;
 
-  /* degradado en texto */
+  
   background: linear-gradient(90deg, var(--primary), var(--hover));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -448,7 +408,7 @@ body {
   transition: 0.3s ease;
 }
 
-/* Línea decorativa bajo el título */
+
 .section-title::after {
   content: "";
   display: block;
@@ -459,24 +419,20 @@ body {
   border-radius: 10px;
 }
 
-/* Hover título */
+
 .section-title:hover {
   transform: scale(1.05);
   letter-spacing: 1px;
 }
 
-/* =========================
-   DARK MODE FIX EXTRA
-   ========================= */
+
 .dark-mode .container {
   background: var(--card);
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* =========================
-   TARJETA PRINCIPAL (ABOUT + SKILLS)
-   ========================= */
+
 .about-card {
   position: relative;
   z-index: 2;
@@ -485,7 +441,6 @@ body {
   padding: 40px;
   border-radius: 20px;
 
-  /* efecto glass */
   background: var(--card);
   backdrop-filter: blur(12px);
 
@@ -493,9 +448,6 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* =========================
-   TEXTO DESCRIPCIÓN (ABOUT)
-   ========================= */
 .about-content p {
   color: var(--text);
   margin-bottom: 10px;
@@ -503,9 +455,7 @@ body {
   font-size: 1.05rem;
 }
 
-/* =========================
-   GRID SKILLS
-   ========================= */
+
 .skills-grid {
   display: grid;
   margin-top: 40px;
@@ -515,9 +465,7 @@ body {
   z-index: 2;
 }
 
-/* =========================
-   CARDS DE CATEGORÍA (SKILLS)
-   ========================= */
+
 .skills-card {
   padding: 30px;
   border-radius: 18px;
@@ -528,30 +476,26 @@ body {
   transition: 0.3s ease;
 }
 
-/* Hover moderno en card */
+
 .skills-card:hover {
   transform: translateY(-8px) scale(1.02);
   border-color: var(--primary);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
-/* =========================
-   TÍTULO DE CATEGORÍA (SKILLS)
-   ========================= */
+
 .skills-card h3 {
   margin-bottom: 20px;
   font-size: 1.4rem;
   text-align: center;
 
-  /* degradado en texto */
+
   background: linear-gradient(90deg, var(--primary), var(--hover));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* =========================
-   ITEMS DE SKILLS
-   ========================= */
+
 .skills-items {
   display: flex;
   flex-wrap: wrap;
@@ -560,9 +504,7 @@ body {
 }
 
 
-/* =========================
-   SKILL ITEM INDIVIDUAL
-   ========================= */
+
 .skill-item {
   display: flex;
   flex-direction: column;
@@ -575,35 +517,31 @@ body {
   cursor: pointer;
 }
 
-/* Hover en skill */
+
 .skill-item:hover {
   transform: scale(1.1);
   color: var(--primary);
 }
 
-/* Iconos */
+
 .skill-item i {
   font-size: 2rem;
 }
 
-/* Texto */
+
 .skill-item span {
   font-size: 0.9rem;
   color: var(--text);
 }
 
-/* =========================
-   DARK MODE FIX BASE
-   ========================= */
+
 .dark-mode .skills-card,
 .dark-mode .about-card,
 .dark-mode .project-card {
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* =========================
-   SKILL ITEM (UNIFICADO)
-   ========================= */
+
 .skill-item {
   display: flex;
   flex-direction: column;
@@ -629,9 +567,7 @@ body {
   color: white;
 }
 
-/* =========================
-   PROJECTS GRID
-   ========================= */
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -640,9 +576,7 @@ body {
   z-index: 2;
 }
 
-/* =========================
-   PROJECT CARD
-   ========================= */
+
 .project-card {
   background: var(--card);
   border-radius: 20px;
@@ -659,9 +593,7 @@ body {
   border-color: var(--primary);
 }
 
-/* =========================
-   CAROUSEL
-   ========================= */
+
 .project-carousel {
   position: relative;
   overflow: hidden;
@@ -694,9 +626,7 @@ body {
 .carousel-btn.prev { left: 10px; }
 .carousel-btn.next { right: 10px; }
 
-/* =========================
-   PROJECT TITLE
-   ========================= */
+
 .project-card h3 {
   font-size: 1.3rem;
   margin-bottom: 10px;
@@ -705,17 +635,12 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-/* =========================
-   PROJECT TEXT
-   ========================= */
+
 .project-card p {
   color: var(--text);
   margin-bottom: 15px;
 }
 
-/* =========================
-   PROJECT TAGS
-   ========================= */
 .project-tags {
   display: flex;
   flex-wrap: wrap;
@@ -741,9 +666,7 @@ body {
   font-size: 18px;
 }
 
-/* =========================
-   PROJECT LINKS
-   ========================= */
+
 .project-links {
   display: flex;
   gap: 15px;
@@ -760,9 +683,7 @@ body {
   transform: scale(1.08);
 }
 
-/* =========================
-   CONTACT FORM
-   ========================= */
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -792,10 +713,10 @@ body {
   border-color: var(--primary);
   outline: none;
 }
-/* Botón de enviar en el formulario */
+
 .contact-form .btn {
-  display: inline-block;       /* evita que ocupe todo el ancho */
-  width: auto;                 /* ancho automático */
+  display: inline-block;       
+  width: auto;                
   padding: 8px 16px;
   border-radius: 30px;
   background: linear-gradient(90deg, var(--primary), var(--hover));
@@ -803,7 +724,7 @@ body {
   text-decoration: none;
   transition: 0.3s;
   cursor: pointer;
-  margin: 0 auto;              /* lo centra si el contenedor usa text-align:center */
+  margin: 0 auto;              
 }
 
 .contact-form .btn:hover {
@@ -811,17 +732,13 @@ body {
 }
 
 
-/* =========================
-   FORM STATUS
-   ========================= */
+
 #form-status {
   margin-top: 10px;
   color: var(--primary);
 }
 
-/* =========================
-   SCROLL ANIMATIONS
-   ========================= */
+
 .section-hidden {
   opacity: 0;
   transform: translateY(40px);
@@ -832,19 +749,17 @@ body {
   transform: translateY(0);
 }
 
-/* =========================
-   FOOTER SECTION
-   ========================= */
+
 .footer {
-  width: 100%;                /* ocupa todo el ancho */
-  background: var(--card);    /* usa la paleta */
+  width: 100%;                
+  background: var(--card);    
   color: var(--text);
   text-align: center;
   padding: 25px 0;
   border-top: 1px solid rgba(0,0,0,0.1);
 }
 
-/* Links rápidos */
+
 .footer-links {
   list-style: none;
   display: flex;
@@ -865,7 +780,7 @@ body {
   text-decoration: underline;
 }
 
-/* Redes sociales */
+
 .footer-social {
   margin-top: 10px;
 }
